@@ -1,56 +1,242 @@
-/* Reset default browser styling */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
 
-/* Body styling */
 body {
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
-    background-color: #f4f4f4;
-    color: #333;
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: #fff;
+  min-height: 100vh;
+  padding-top: 70px; /* ruang header */
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
 }
 
-/* Header styling */
+/* HEADER */
 header {
-    background-color: #007BFF;
-    color: #fff;
-    padding: 20px;
-    text-align: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 70px;
+  background: linear-gradient(90deg, #764ba2, #667eea);
+  display: flex;
+  align-items: center;
+  padding: 0 25px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  z-index: 1100;
 }
 
-/* Section styling */
-section {
-    padding: 20px;
-    margin: 10px 0;
+header .logo {
+  font-size: 1.8rem;
+  margin-right: 12px;
+  animation: rotateLogo 4s linear infinite;
 }
 
-/* Tentang Kami */
-#about {
-    background-color: #e9ecef;
+header h1 {
+  font-weight: 700;
+  font-size: 1.4rem;
+  letter-spacing: 1px;
+  user-select: none;
+  color: #fff;
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  text-shadow: 1px 1px 5px rgba(0,0,0,0.4);
 }
 
-/* Visi & Misi */
-#vision-mission ul {
-    list-style-type: none;
-    padding-left: 20px;
+/* Logo animasi */
+@keyframes rotateLogo {
+  0% { transform: rotate(0deg);}
+  50% { transform: rotate(15deg);}
+  100% { transform: rotate(0deg);}
 }
 
-#vision-mission li {
-    margin: 10px 0;
+#app {
+  background: rgba(255,255,255,0.1);
+  padding: 30px 40px;
+  border-radius: 15px;
+  width: 380px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+  text-align: center;
 }
 
-/* Kontak */
-#contact {
-    background-color: #e9ecef;
+#app {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* center horizontal semua anak */
 }
 
-/* Footer */
-footer {
-    text-align: center;
-    background-color: #333;
-    color: #fff;
-    padding: 10px;
+.options-container {
+  display: flex;
+  justify-content: center;
+  gap: 15px; /* jarak antar tombol */
+  width: 100%;
+  max-width: 360px;
+  margin-bottom: 15px;
+}
+
+.btn {
+  flex: 1;
+  max-width: 170px;
+}
+
+h1 {
+  margin-bottom: 20px;
+  font-weight: 600;
+  font-size: 1.8rem;
+}
+
+#question {
+  font-size: 1.2rem;
+  margin-bottom: 25px;
+  min-height: 60px;
+}
+
+.btn {
+  background: #fff;
+  color: #764ba2;
+  border: none;
+  border-radius: 50px;
+  padding: 12px 25px;
+  font-weight: 600;
+  font-size: 1rem;
+  margin: 10px 0;
+  width: 100%;
+  cursor: pointer;
+  transition: background 0.3s ease, color 0.3s ease;
+  box-shadow: 0 4px 10px rgba(118, 75, 162, 0.4);
+}
+
+.btn:hover {
+  background: #764ba2;
+  color: #fff;
+  box-shadow: 0 6px 15px rgba(118, 75, 162, 0.7);
+}
+
+#result {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+}
+
+#result h2 {
+  font-size: 1.6rem;
+  margin-bottom: 15px;
+  color: #ffdd59;
+  text-shadow: 1px 1px 6px #ffd700;
+}
+
+#result a {
+  background: #ffdd59;
+  color: #764ba2;
+  padding: 12px 30px;
+  border-radius: 30px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: background 0.3s ease;
+  box-shadow: 0 4px 12px rgba(255, 221, 89, 0.7);
+}
+
+#result a:hover {
+  background: #e6c200;
+  box-shadow: 0 6px 18px rgba(230, 194, 0, 1);
+}
+
+#feedback {
+  margin-top: 15px;
+  font-size: 0.95rem;
+  color: #ff6b6b;
+  font-weight: 600;
+}
+
+/* Popup hadiah */
+#popup {
+  position: fixed;
+  top: 0; left: 0; right:0; bottom: 0;
+  background: rgba(0,0,0,0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+#popupContent {
+  background: #fff;
+  color: #764ba2;
+  padding: 30px 40px;
+  border-radius: 15px;
+  max-width: 400px;
+  text-align: center;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+  animation: popupAppear 0.5s ease forwards;
+}
+
+#popupContent h2 {
+  margin-bottom: 15px;
+}
+
+#popupContent p {
+  font-size: 1rem;
+  margin-bottom: 25px;
+}
+
+#popupContent button {
+  background: #764ba2;
+  color: #fff;
+  border: none;
+  border-radius: 50px;
+  padding: 12px 30px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  box-shadow: 0 5px 12px rgba(118,75,162,0.7);
+}
+
+#popupContent button:hover {
+  background: #5a357a;
+}
+
+/* Animasi popup */
+@keyframes popupAppear {
+  from {opacity: 0; transform: scale(0.8);}
+  to {opacity: 1; transform: scale(1);}
+}
+
+/* About page style */
+.about-container {
+  background: linear-gradient(135deg, #764ba2, #667eea);
+  min-height: 100vh;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+  font-family: 'Poppins', sans-serif;
+  text-align: center;
+  padding-top: 90px; /* ruang header */
+}
+
+.about-container h1 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+.about-container p {
+  max-width: 500px;
+  font-size: 1.1rem;
+  margin-bottom: 15px;
+}
+
+.about-container a {
+  color: #ffdd59;
+  font-weight: 700;
+  text-decoration: none;
+  border-bottom: 2px solid transparent;
+  transition: border-bottom 0.3s ease;
+}
+
+.about-container a:hover {
+  border-bottom: 2px solid #ffdd59;
 }
