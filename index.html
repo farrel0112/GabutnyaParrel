@@ -1,46 +1,164 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Profil Perumda Air Minum Tirta Sugi Laende">
-    <title>Profil Perusahaan Perumda Tirta Sugi Laende</title>
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Would You Rather - Quiz by Parrell</title>
+<link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <header>
+    <div class="logo" aria-label="Logo dice">🎲</div>
+    <h1>Quiz by Parrell</h1>
+  </header>
 
-    <!-- Header -->
-    <header>
-        <h1>Selamat Datang di Perusahaan Daerah Air Minum Tirta Sugi Laende</h1>
-        <p>Inovasi, Kepercayaan, dan Kualitas</p>
-    </header>
+  <div id="app">
+    <h1>Pilih mana hayoo</h1>
+    <div id="question"></div>
 
-    <!-- Tentang Perusahaan -->
-    <section id="about">
-        <h2>Tentang Kami</h2>
-        <p>Perusahaan Daerah Air Minum Tirta Sugi Laende adalah perusahaan yang bergerak di bidang perairan dan air bersih, berdedikasi untuk memberikan solusi terbaik kepada pelanggan kami.</p>
-    </section>
+    <div class="options-container">
+      <button id="option1" class="btn"></button>
+      <button id="option2" class="btn"></button>
+    </div>
 
-    <!-- Visi & Misi -->
-    <section id="vision-mission">
-        <h2>Visi dan Misi</h2>
-        <ul>
-            <li><strong>Visi:</strong> Menjadi pemimpin pasar dalam solusi teknologi terdepan.</li>
-            <li><strong>Misi:</strong> Memberikan layanan terbaik yang mengutamakan kepuasan pelanggan.</li>
-        </ul>
-    </section>
+    <div id="feedback"></div>
 
-    <!-- Kontak -->
-    <section id="contact">
-        <h2>Kontak Kami</h2>
-        <p>Jika Anda ingin menghubungi kami, silakan kirim email ke <a href="mailto:info@xyz.com">info@xyz.com</a></p>
-    </section>
+    <div id="result">
+      <h2>Anjayy bisa tau gitu brokk 🎉</h2>
+      <a id="resultLink" href="#" target="_blank" rel="noopener noreferrer">Ambil cepattt</a>
+    </div>
 
-    <!-- Footer -->
-    <footer>
-        <p>&copy; 2025 Perusahaan Daerah Air Minum Tirta Sugi Laende. Semua Hak Cipta Dilindungi.</p>
-    </footer>
+    <div style="margin-top: 20px; font-size: 0.9rem;">
+      <a href="about.html" style="color:#ffdd59;">Tentang Pembuat</a>
+    </div>
+  </div>
 
-    <script src="script.js"></script>
+  <!-- Popup hadiah -->
+  <div id="popup">
+    <div id="popupContent">
+      <h2>🎁 Hadiah Menarik Menanti!</h2>
+      <p>Bisa jawab semua? Anda teman terbaik saya dan dapat uang (ingat jangan dipakai buat yang haram)!!</p>
+      <button id="startQuizBtn">Mulai Quiz</button>
+    </div>
+  </div>
+
+<script>
+  const questions = [
+    {
+      question: "Nama lengkap parrel yang mana si?",
+      option1: "Muhammad Farrel Dinejad",
+      option2: "Muhamad Farrel Dinejad",
+      correct: 1
+    },
+    {
+      question: "Nama jurusan parrel apa si?",
+      option1: "Information Technology",
+      option2: "Informatics",
+      correct: 1
+    },
+    {
+      question: "si Parrel tu pernah jadi atlet apa si?",
+      option1: "Esports, Billiard dan Basket",
+      option2: "Billiard, Badminton dan Esports",
+      correct: 2
+    },
+    {
+      question: "Berapa si umur parrel sekarang?",
+      option1: "20",
+      option2: "19",
+      correct: 2
+    },
+    {
+      question: "Kapan si ultah parrel?",
+      option1: "Awal Desember",
+      option2: "Akhir Desember",
+      correct: 1
+    },
+    {
+      question: "Warna apa motor Parrel di bandung?",
+      option1: "Window Grey",
+      option2: "Ice Grey",
+      correct: 2
+    },
+    {
+      question: "Last nii, berapa following tiktok parrel saat web ini dibuat?",
+      option1: "29",
+      option2: "27",
+      correct: 2
+    }
+  ];
+
+  const finalLink = "";
+
+  let currentIndex = 0;
+
+  const questionEl = document.getElementById('question');
+  const option1Btn = document.getElementById('option1');
+  const option2Btn = document.getElementById('option2');
+  const feedbackEl = document.getElementById('feedback');
+  const resultEl = document.getElementById('result');
+  const resultLinkEl = document.getElementById('resultLink');
+  const popupEl = document.getElementById('popup');
+  const startQuizBtn = document.getElementById('startQuizBtn');
+
+  resultLinkEl.href = "https://link.dana.id/danakaget?c=sduah9r9l&r=fsRnxP&orderId=20250519101214735515010300166511623125175";
+
+  function loadQuestion() {
+    feedbackEl.textContent = "";
+    const q = questions[currentIndex];
+    questionEl.textContent = q.question;
+    option1Btn.textContent = q.option1;
+    option2Btn.textContent = q.option2;
+    option1Btn.disabled = false;
+    option2Btn.disabled = false;
+  }
+
+  function resetQuiz() {
+    currentIndex = 0;
+    resultEl.style.display = 'none';
+    questionEl.style.display = 'block';
+    option1Btn.style.display = 'block';
+    option2Btn.style.display = 'block';
+    feedbackEl.style.display = 'block';
+    loadQuestion();
+  }
+
+  function finishQuiz() {
+    questionEl.style.display = 'none';
+    option1Btn.style.display = 'none';
+    option2Btn.style.display = 'none';
+    feedbackEl.style.display = 'none';
+    resultEl.style.display = 'flex';
+  }
+
+  function handleAnswer(selected) {
+    const correct = questions[currentIndex].correct;
+    if(selected === correct) {
+      feedbackEl.textContent = "Jawaban benar! 🎉";
+      currentIndex++;
+      if(currentIndex < questions.length) {
+        setTimeout(loadQuestion, 10);
+      } else {
+        setTimeout(finishQuiz, 10);
+      }
+    } else {
+      feedbackEl.textContent = "Jawaban salah, coba lagi ya.";
+      setTimeout(resetQuiz, 1500);
+    }
+  }
+
+  option1Btn.addEventListener('click', () => handleAnswer(1));
+  option2Btn.addEventListener('click', () => handleAnswer(2));
+
+  startQuizBtn.addEventListener('click', () => {
+    popupEl.style.display = 'none';
+    resetQuiz();
+  });
+
+  // Start popup visible on load
+  window.onload = () => {
+    popupEl.style.display = 'flex';
+  }
+</script>
 </body>
 </html>
