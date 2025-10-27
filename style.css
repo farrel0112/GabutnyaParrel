@@ -22,7 +22,7 @@ header {
   align-items: center;
   padding: 15px 40px;
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-  background-color: #05cdfa95;
+  background-color: #6ff0fc;
 }
 
 .logo {
@@ -156,7 +156,7 @@ nav a:hover {
 }
 
 .btn-daftar {
-  background-color: #6ff0fc;
+  background-color: #6ff0fcc5;
 }
 
 .btn-daftar:hover {
@@ -176,7 +176,7 @@ nav a:hover {
 
 .fitur {
   position: relative;
-  background-color: #6ff0fcd6;
+  background-color: #6ff0fcc0;
   padding: 45px;
   border-radius: 25px;
   display: flex;
